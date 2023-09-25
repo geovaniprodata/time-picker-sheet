@@ -29,30 +29,26 @@ class ListNumber extends StatelessWidget {
     return ValueListenableBuilder<int>(
       valueListenable: numberNotifier,
       builder: (ctx, selectedNumber, _) {
-        final widgets = List<Widget>.generate(
-          numbers.length,
-          (index) {
-            final number = numbers[index];
+        // final widgets = List<Widget>.generate(
+        //   numbers.length,
+        //   (index) {
+        //     final number = numbers[index];
 
-            String numberFormatted = number.toString();
-            if (twoDigits) numberFormatted = numberFormatted.padLeft(2, '0');
+        //     String numberFormatted = number.toString();
+        //     if (twoDigits) numberFormatted = numberFormatted.padLeft(2, '0');
 
-            return MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: itemHeight,
-                  alignment: Alignment.center,
-                  child: Text(
-                    numberFormatted,
-                    style: selectedNumber == number ? provider.wheelNumberSelectedStyle : provider.wheelNumberItemStyle,
-                  ),
-                ),
-              ),
-            );
-          },
-        );
+        //     return Container(
+        //       height: itemHeight,
+        //       alignment: Alignment.center,
+        //       child: Text(
+        //         numberFormatted,
+        //         style: selectedNumber == number ? provider.wheelNumberSelectedStyle : provider.wheelNumberItemStyle,
+        //       ),
+        //     );
+        //   },
+        // );
+
+        var widgets = <Widget>[];
 
         return ListWheelScrollView.useDelegate(
           itemExtent: itemHeight,
