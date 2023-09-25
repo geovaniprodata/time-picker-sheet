@@ -224,7 +224,7 @@ class _TimePickerBodyState extends State<TimePickerBody> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                primary: provider.saveButtonColor,
+                backgroundColor: provider.saveButtonColor,
               ), // <-- Radius
               onPressed: () => _onSaved(context),
             ),
