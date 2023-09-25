@@ -46,10 +46,10 @@ class NumberWheel extends StatelessWidget {
         controller: controller,
         numberNotifier: numberNotifier,
         manualChange: manualChange
-            ? (number) {
-                final position = (number * itemHeight);
+            ? (number) async {
+                final position = numbers.indexOf(number) * itemHeight;
 
-                controller.jumpTo(position);
+                await controller.animateTo(position, curve: Curves.easeIn, duration: const Duration(milliseconds: 300));
               }
             : null,
       ),
