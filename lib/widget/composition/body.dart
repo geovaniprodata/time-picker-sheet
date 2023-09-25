@@ -174,40 +174,40 @@ class _TimePickerBodyState extends State<TimePickerBody> {
           ],
         ),
         const SizedBox(height: 24),
-        // Row(
-        //   children: [
-        //     Expanded(
-        //       child: SizedBox(
-        //         child: NumberWheel(
-        //           numbers: _getHours(),
-        //           itemHeight: widget.itemHeight,
-        //           numberNotifier: hourNotifier,
-        //           twoDigits: provider.twoDigit,
-        //           controller: hourController,
-        //         ),
+        Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                child: NumberWheel(
+                  numbers: _getHours(),
+                  itemHeight: widget.itemHeight,
+                  numberNotifier: hourNotifier,
+                  twoDigits: provider.twoDigit,
+                  controller: hourController,
+                ),
 
-        //         /// show only 3 items in the list as an options.
-        //         /// the selected option should be on the middle of the list.
-        //         height: widget.itemHeight * 3,
-        //       ),
-        //     ),
-        //     Expanded(
-        //       child: SizedBox(
-        //         child: NumberWheel(
-        //           numbers: _getMinutes(),
-        //           itemHeight: widget.itemHeight,
-        //           numberNotifier: minuteNotifier,
-        //           twoDigits: provider.twoDigit,
-        //           controller: minuteController,
-        //         ),
+                /// show only 3 items in the list as an options.
+                /// the selected option should be on the middle of the list.
+                height: widget.itemHeight * 3,
+              ),
+            ),
+            Expanded(
+              child: SizedBox(
+                child: NumberWheel(
+                  numbers: _getMinutes(),
+                  itemHeight: widget.itemHeight,
+                  numberNotifier: minuteNotifier,
+                  twoDigits: provider.twoDigit,
+                  controller: minuteController,
+                ),
 
-        //         /// show only 3 items in the list as an options.
-        //         /// the selected option should be on the middle of the list.
-        //         height: widget.itemHeight * 3,
-        //       ),
-        //     ),
-        //   ],
-        // ),
+                /// show only 3 items in the list as an options.
+                /// the selected option should be on the middle of the list.
+                height: widget.itemHeight * 3,
+              ),
+            ),
+          ],
+        ),
         const Expanded(child: SizedBox.shrink()),
         Padding(
           padding: const EdgeInsets.all(16),

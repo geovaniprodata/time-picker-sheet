@@ -36,13 +36,14 @@ class NumberWheel extends StatelessWidget {
         }
         return true;
       },
-      child: ListNumber(
-        itemHeight: itemHeight,
-        numbers: numbers,
-        twoDigits: twoDigits,
-        controller: controller,
-        numberNotifier: numberNotifier,
-      ),
+      child: SizedBox.shrink(),
+      // child: ListNumber(
+      //   itemHeight: itemHeight,
+      //   numbers: numbers,
+      //   twoDigits: twoDigits,
+      //   controller: controller,
+      //   numberNotifier: numberNotifier,
+      // ),
     );
   }
 }
