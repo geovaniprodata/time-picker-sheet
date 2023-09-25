@@ -26,6 +26,8 @@ class TimePickerBody extends StatefulWidget {
 
   final int minMinute;
 
+  final bool manualChange;
+
   const TimePickerBody({
     Key? key,
     required this.dateTime,
@@ -37,6 +39,7 @@ class TimePickerBody extends StatefulWidget {
     required this.maxMinute,
     required this.minuteInterval,
     required this.hourInterval,
+    required this.manualChange,
   }) : super(key: key);
 
   @override
@@ -184,6 +187,7 @@ class _TimePickerBodyState extends State<TimePickerBody> {
                   numberNotifier: hourNotifier,
                   twoDigits: provider.twoDigit,
                   controller: hourController,
+                  manualChange: widget.manualChange,
                 ),
 
                 /// show only 3 items in the list as an options.
@@ -199,6 +203,7 @@ class _TimePickerBodyState extends State<TimePickerBody> {
                   numberNotifier: minuteNotifier,
                   twoDigits: provider.twoDigit,
                   controller: minuteController,
+                  manualChange: widget.manualChange,
                 ),
 
                 /// show only 3 items in the list as an options.

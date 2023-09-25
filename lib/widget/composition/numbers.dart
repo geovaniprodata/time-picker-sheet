@@ -13,6 +13,8 @@ class ListNumber extends StatelessWidget {
 
   final bool twoDigits;
 
+  final Function(int)? manualChange;
+
   const ListNumber({
     Key? key,
     required this.itemHeight,
@@ -20,6 +22,7 @@ class ListNumber extends StatelessWidget {
     required this.controller,
     required this.numberNotifier,
     required this.twoDigits,
+    this.manualChange,
   }) : super(key: key);
 
   @override
@@ -37,22 +40,28 @@ class ListNumber extends StatelessWidget {
             String numberFormatted = number.toString();
             if (twoDigits) numberFormatted = numberFormatted.padLeft(2, '0');
 
-            return MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {
-                  numberNotifier.value = number;
-                },
-                child: Container(
-                  height: itemHeight,
-                  alignment: Alignment.center,
-                  child: Text(
-                    numberFormatted,
-                    style: selectedNumber == number ? provider.wheelNumberSelectedStyle : provider.wheelNumberItemStyle,
-                  ),
-                ),
+            Widget content = Container(
+              height: itemHeight,
+              alignment: Alignment.center,
+              child: Text(
+                numberFormatted,
+                style: selectedNumber == number ? provider.wheelNumberSelectedStyle : provider.wheelNumberItemStyle,
               ),
             );
+
+            return manualChange != null
+                ? MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () {
+                        numberNotifier.value = number;
+
+                        manualChange!(number);
+                      },
+                      child: content,
+                    ),
+                  )
+                : content;
           },
         );
 

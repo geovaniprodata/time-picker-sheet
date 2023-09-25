@@ -12,12 +12,15 @@ class NumberWheel extends StatelessWidget {
 
   final ScrollController controller;
 
+  final bool manualChange;
+
   const NumberWheel({
     Key? key,
     required this.itemHeight,
     required this.numberNotifier,
     required this.numbers,
     required this.controller,
+    required this.manualChange,
     this.twoDigits = false,
   }) : super(key: key);
 
@@ -42,6 +45,13 @@ class NumberWheel extends StatelessWidget {
         twoDigits: twoDigits,
         controller: controller,
         numberNotifier: numberNotifier,
+        manualChange: manualChange
+            ? (number) {
+                final position = (number * itemHeight);
+
+                controller.jumpTo(position);
+              }
+            : null,
       ),
     );
   }

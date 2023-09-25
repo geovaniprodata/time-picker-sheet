@@ -74,6 +74,8 @@ class TimePickerSheet extends TimePicker {
 
   final Color saveButtonColor;
 
+  final bool manualChange;
+
   late final _now = DateTime.now();
 
   /// if initialDateTime is null, then default time will be used.
@@ -103,6 +105,7 @@ class TimePickerSheet extends TimePicker {
     this.sheetCloseIcon = Icons.close,
     this.sheetCloseIconColor = Colors.redAccent,
     this.saveButtonColor = Colors.redAccent,
+    this.manualChange = false,
     this.sheetTitleStyle = const TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 16,
@@ -176,6 +179,7 @@ class TimePickerSheet extends TimePicker {
                       maxMinute: maxMinute,
                       minMinute: minMinute,
                       visibleItems: 3,
+                      manualChange: manualChange,
                     ),
                   ],
                 ),
