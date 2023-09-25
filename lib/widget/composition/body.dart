@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_picker_sheet/util/extension.dart';
 import 'package:time_picker_sheet/widget/composition/wheel.dart';
 import 'package:time_picker_sheet/widget/provider/time_picker.dart';
 
@@ -219,7 +220,10 @@ class _TimePickerBodyState extends State<TimePickerBody> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text(provider.saveButtonText),
+              child: Text(provider.saveButtonText,
+                  style: TextStyle(
+                    color: provider.saveButtonColor.isDark ? Colors.white : Colors.black87,
+                  )),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
