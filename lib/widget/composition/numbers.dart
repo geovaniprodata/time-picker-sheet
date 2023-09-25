@@ -37,12 +37,20 @@ class ListNumber extends StatelessWidget {
             String numberFormatted = number.toString();
             if (twoDigits) numberFormatted = numberFormatted.padLeft(2, '0');
 
-            return Container(
-              height: itemHeight,
-              alignment: Alignment.center,
-              child: Text(
-                numberFormatted,
-                style: selectedNumber == number ? provider.wheelNumberSelectedStyle : provider.wheelNumberItemStyle,
+            return MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () {
+                  numberNotifier.value = number;
+                },
+                child: Container(
+                  height: itemHeight,
+                  alignment: Alignment.center,
+                  child: Text(
+                    numberFormatted,
+                    style: selectedNumber == number ? provider.wheelNumberSelectedStyle : provider.wheelNumberItemStyle,
+                  ),
+                ),
               ),
             );
           },
